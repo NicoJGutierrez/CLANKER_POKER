@@ -1,6 +1,140 @@
 from math import inf
 from pokerkit import Automation, Mode, NoLimitTexasHoldem
 from abc import ABC, abstractmethod
+from deuces import Card
+
+
+def convert_pokerkit_to_deuces_cards(pokerkit_cards):
+    """
+    Convierte cartas de pokerkit a formato deuces para pretty printing
+    """
+    if not pokerkit_cards:
+        return []
+
+    deuces_cards = []
+    for card in pokerkit_cards:
+        try:
+            # Intentar convertir usando la representación string de la carta
+            card_str = str(card)
+
+            # Parsear la representación más compleja de pokerkit
+            # Ejemplo: "SIX OF DIAMONDS (6d)" -> "6d"
+            if '(' in card_str and ')' in card_str:
+                # Extraer la parte entre paréntesis
+                start = card_str.find('(')
+                end = card_str.find(')', start)
+                if start != -1 and end != -1:
+                    short_form = card_str[start+1:end]
+
+                    # Crear carta deuces
+                    if len(short_form) >= 2:
+                        try:
+                            deuces_card = Card.new(short_form)
+                            deuces_cards.append(deuces_card)
+                            continue
+                        except:
+                            pass
+
+            # Fallback: intentar mapeo directo
+            suit_map = {'♠': 's', '♥': 'h', '♦': 'd', '♣': 'c'}
+            if len(card_str) >= 2:
+                rank = card_str[0]
+                suit_symbol = card_str[1]
+
+                if suit_symbol in suit_map:
+                    deuces_card_str = rank + suit_map[suit_symbol]
+                    deuces_card = Card.new(deuces_card_str)
+                    deuces_cards.append(deuces_card)
+                    continue
+
+            # Último fallback: usar string representation
+            deuces_cards.append(card_str)
+
+        except Exception as e:
+            # Si falla la conversión, usar string representation
+            deuces_cards.append(str(card))
+
+    return deuces_cards
+
+
+def safe_print_pretty_cards(cards, prefix=""):
+    """
+    Imprime cartas de manera segura con pretty printing o fallback
+    """
+    if not cards:
+        print(f"{prefix}(Sin cartas)")
+        return
+
+    try:
+        # Intentar usar deuces para pretty printing
+        deuces_cards = convert_pokerkit_to_deuces_cards(cards)
+
+        # Verificar si tenemos cartas válidas para deuces
+        valid_deuces_cards = [c for c in deuces_cards if isinstance(c, int)]
+
+        if len(valid_deuces_cards) > 0:
+            # Usar pretty printing de deuces
+            import io
+            import sys
+
+            old_stdout = sys.stdout
+            sys.stdout = buffer = io.StringIO()
+            Card.print_pretty_cards(valid_deuces_cards)
+            cards_output = buffer.getvalue()
+            sys.stdout = old_stdout
+
+            # Añadir prefijo a cada línea si hay salida válida
+            lines = cards_output.strip().split('\n')
+            if lines and any(line.strip() for line in lines):
+                for line in lines:
+                    if line.strip():
+                        print(f"{prefix}{line}")
+            else:
+                # Fallback si no hay salida válida
+                card_strings = []
+                for card in cards:
+                    card_str = str(card)
+                    if '(' in card_str and ')' in card_str:
+                        start = card_str.find('(')
+                        end = card_str.find(')', start)
+                        if start != -1 and end != -1:
+                            card_strings.append(card_str[start+1:end])
+                        else:
+                            card_strings.append(card_str)
+                    else:
+                        card_strings.append(card_str)
+                print(f"{prefix}{' '.join(card_strings)}")
+        else:
+            # Fallback: usar representación string simple
+            card_strings = []
+            for card in cards:
+                card_str = str(card)
+                if '(' in card_str and ')' in card_str:
+                    start = card_str.find('(')
+                    end = card_str.find(')', start)
+                    if start != -1 and end != -1:
+                        card_strings.append(card_str[start+1:end])
+                    else:
+                        card_strings.append(card_str)
+                else:
+                    card_strings.append(card_str)
+            print(f"{prefix}{' '.join(card_strings)}")
+
+    except Exception as e:
+        # Fallback final: representación string simple
+        card_strings = []
+        for card in cards:
+            card_str = str(card)
+            if '(' in card_str and ')' in card_str:
+                start = card_str.find('(')
+                end = card_str.find(')', start)
+                if start != -1 and end != -1:
+                    card_strings.append(card_str[start+1:end])
+                else:
+                    card_strings.append(card_str)
+            else:
+                card_strings.append(card_str)
+        print(f"{prefix}{' '.join(card_strings)}")
 
 
 class PlayerStrategy(ABC):
@@ -143,7 +277,7 @@ class SimpleAIStrategy(PlayerStrategy):
         return action_type, amount
 
     def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🤖 {self.name}: {description}")  
+        print(f"🤖 {self.name}: {description}")
 
 
 class AggressiveAIStrategy(PlayerStrategy):
@@ -183,7 +317,7 @@ class AggressiveAIStrategy(PlayerStrategy):
         return action_type, amount
 
     def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🔥 {self.name}: {description}")  
+        print(f"🔥 {self.name}: {description}")
 
 
 class ConservativeAIStrategy(PlayerStrategy):
@@ -223,7 +357,7 @@ class ConservativeAIStrategy(PlayerStrategy):
         return action_type, amount
 
     def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🛡️ {self.name}: {description}")  
+        print(f"🛡️ {self.name}: {description}")
 
 
 class InteractivePokerGame:
@@ -299,18 +433,20 @@ class InteractivePokerGame:
 
             total_pot = sum(self.state.bets) if self.state.bets else 0
 
-            # Cartas comunitarias
+            # Cartas comunitarias con pretty printing
             community_cards = []
             try:
                 for cards in self.state.board_cards:
-                    community_cards.extend(str(card) for card in cards)
+                    community_cards.extend(cards)
             except (TypeError, AttributeError):
                 pass
 
-            cards_str = ' '.join(
-                community_cards) if community_cards else "(Sin cartas)"
-
-            print(f"\n{current_street} | Bote: {total_pot:,} | Mesa: {cards_str}")
+            print(f"\n{current_street} | Bote: {total_pot:,}")
+            if community_cards:
+                print("🃏 Mesa:")
+                safe_print_pretty_cards(community_cards)
+            else:
+                print("🃏 Mesa: (Sin cartas)")
 
             # Información compacta de jugadores
             for i in range(self.state.player_count):
@@ -322,49 +458,32 @@ class InteractivePokerGame:
                 turn_indicator = "👉" if (
                     self.state.actor_indices and i == self.state.actor_indices[0]) else "  "
 
-                # Cartas del jugador (solo para humano o si show_all_cards)
-                if (i == self.human_player and self.human_player >= 0) or show_all_cards:
+                # Cartas del jugador - mostrar para todos si no hay jugador humano, o según condiciones
+                should_show_cards = (show_all_cards or
+                                     # No hay jugador humano, mostrar todas
+                                     (self.human_player < 0) or
+                                     # Es el jugador humano
+                                     (i == self.human_player))
+
+                if should_show_cards:
                     if self.state.hole_cards[i]:
-                        hole_cards = ' '.join(str(card)
-                                              for card in self.state.hole_cards[i])
+                        print(
+                            f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,})")
+                        safe_print_pretty_cards(
+                            self.state.hole_cards[i], "       ")
                     else:
-                        hole_cards = "Sin cartas"
-                    print(
-                        f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,}) [{hole_cards}]")
+                        print(
+                            f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,}) [Fold]")
                 else:
                     print(f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,})")
         else:
             # Versión completa original
             print("\n" + "="*60)
-            print("🎰 ESTADO ACTUAL DEL JUEGO 🎰")
+            print("🎰 LETS GO GAMBLING!!! 🎰")
             print("="*60)
-
-            # Información de la ronda
-            street_names = ["Pre-flop", "Flop", "Turn", "River"]
-            try:
-                current_street = street_names[min(
-                    self.state.street_index if self.state.street_index is not None else 0, 3)]
-            except (TypeError, AttributeError):
-                current_street = "Pre-flop"
-            print(f"📍 Calle actual: {current_street}")
 
             # Pot total
             total_pot = sum(self.state.bets) if self.state.bets else 0
-            print(f"💰 Bote total: {total_pot}")
-
-            # Cartas comunitarias
-            print("\n🃏 CARTAS COMUNITARIAS:")
-            community_cards = []
-            try:
-                for cards in self.state.board_cards:
-                    community_cards.extend(str(card) for card in cards)
-            except (TypeError, AttributeError):
-                pass
-
-            if community_cards:
-                print(f"   {' '.join(community_cards)}")
-            else:
-                print("   (Sin cartas aún)")
 
             # Información de jugadores
             print("\n👥 JUGADORES:")
@@ -376,15 +495,12 @@ class InteractivePokerGame:
                 stack = self.state.stacks[i]
                 bet = self.state.bets[i] if self.state.bets else 0
 
-                # Cartas del jugador
-                if (i == self.human_player and self.human_player >= 0) or show_all_cards:
-                    if self.state.hole_cards[i]:
-                        hole_cards = ' '.join(str(card)
-                                              for card in self.state.hole_cards[i])
-                    else:
-                        hole_cards = "Sin cartas"
-                else:
-                    hole_cards = "🂠 🂠" if self.state.hole_cards[i] else "Sin cartas"
+                # Cartas del jugador - mostrar para todos si no hay jugador humano, o según condiciones
+                should_show_cards = (show_all_cards or
+                                     # No hay jugador humano, mostrar todas
+                                     (self.human_player < 0) or
+                                     # Es el jugador humano
+                                     (i == self.human_player))
 
                 # Indicador de turno
                 turn_indicator = "👉" if (
@@ -394,7 +510,16 @@ class InteractivePokerGame:
                 print(f"     Estado: {status}")
                 print(f"     Stack: {stack:,}")
                 print(f"     Apuesta: {bet:,}")
-                print(f"     Cartas: {hole_cards}")
+
+                if should_show_cards:
+                    if self.state.hole_cards[i]:
+                        safe_print_pretty_cards(
+                            self.state.hole_cards[i], "       ")
+                    else:
+                        print(f"     Sin cartas")
+                else:
+                    print(
+                        f"     🂠 🂠" if self.state.hole_cards[i] else "     Sin cartas")
                 print()
 
             # Jugador en turno
@@ -518,11 +643,10 @@ class InteractivePokerGame:
 
     def show_results(self):
         """Muestra los resultados finales de la mano"""
-        print("\n" + "🏆" * 20)
-        print("RESULTADOS FINALES")
-        print("🏆" * 20)
+        print("RESULTADOS FINALES 🏆")
 
         try:
+            # Mostrar siempre todas las cartas en los resultados finales
             self.print_game_state(show_all_cards=True)
 
             # Mostrar ganadores
@@ -531,9 +655,10 @@ class InteractivePokerGame:
             if len(active_players) == 1:
                 winner = active_players[0]
                 print(
-                    f"\n🥇 {self.player_names[winner]} gana por ser el único jugador restante!")
+                    f"🥇 {self.player_names[winner]} gana por ser el único jugador restante!")
             elif len(active_players) > 1:
-                print(f"\n🎪 Showdown entre {len(active_players)} jugadores")
+                print(
+                    f"🎪 A {len(active_players)} jugadores les toca mostrar sus cartas")
 
             # Mostrar stacks finales
             print("\n💰 FICHAS FINALES:")
@@ -554,7 +679,6 @@ class InteractivePokerGame:
 
     def play_hand(self):
         """Juega una mano completa"""
-        print("\n🎲 ¡Nueva mano de Texas Hold'em!")
 
         # Mostrar información especial para heads-up (2 jugadores)
         if self.state.player_count == 2:
@@ -562,14 +686,16 @@ class InteractivePokerGame:
 
         if self.human_player >= 0 and self.human_player < len(self.player_names):
             print(f"🎯 Tú eres {self.player_names[self.human_player]}")
-        else:
-            print("🤖 Observando partida entre bots...")
 
         self.print_game_state()  # Estado inicial completo
 
+        # Contador de seguridad para evitar bucles infinitos
+        max_actions = 1000
+        action_count = 0
+
         # Loop principal del juego
         try:
-            while not self.is_hand_over():
+            while not self.is_hand_over() and action_count < max_actions:
                 if not self.state.actor_indices:
                     break
 
@@ -584,6 +710,8 @@ class InteractivePokerGame:
                 if not self.execute_action(action_type, amount, current_player):
                     continue
 
+                action_count += 1
+
                 # Pausa para jugadores no humanos para que sea más natural
                 if not isinstance(self.player_strategies[current_player], HumanPlayerStrategy):
                     import time
@@ -595,6 +723,10 @@ class InteractivePokerGame:
 
                 # Mostrar estado actualizado en formato compacto
                 self.print_game_state(compact=True)
+
+            if action_count >= max_actions:
+                print(
+                    "⚠️ Se alcanzó el límite máximo de acciones. Terminando la mano...")
 
         except Exception as e:
             print(f"⚠️ Error durante el juego: {e}")
@@ -612,7 +744,8 @@ def main():
 
     try:
         # Configuración del juego con diferentes estrategias
-        starting_stacks = [10000, 10000, 10000, 10000, 10000]  # Fichas iniciales iguales
+        starting_stacks = [10000, 10000, 10000,
+                           10000, 10000]  # Fichas iniciales iguales
         blinds = (50, 100)  # Small blind, Big blind
 
         # Crear y ejecutar el juego
@@ -646,8 +779,8 @@ def main():
                         continue
 
                 if len(active_players) >= 2:
-                    
-                    print(f"\n🎮 Continúa con {len(active_players)} jugadores")
+
+                    print(f"🎮 Continúa con {len(active_players)} jugadores")
 
                     # Crear nuevas estrategias para los jugadores activos
                     active_strategies = [game.player_strategies[i]
@@ -661,7 +794,7 @@ def main():
 
                     game.play_hand()
                 else:
-                    
+
                     print("🏁 Solo queda un jugador. ¡Juego terminado!")
                     break
             else:
@@ -676,13 +809,13 @@ def main():
                     if winner_idx is not None:
                         winner_name = game.player_names[winner_idx]
                         print(
-                            
+
                             f"🏆 ¡{winner_name} gana el torneo con {new_stacks[winner_idx]:,} fichas!")
                     else:
                         print("🚫 Error: No se pudo determinar el ganador")
                     break
                 else:
-                    
+
                     print("🚫 No hay suficientes jugadores para continuar")
                     break
 
