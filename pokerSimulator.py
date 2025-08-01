@@ -1,7 +1,10 @@
-from math import inf
+
 from pokerkit import Automation, Mode, NoLimitTexasHoldem
 from abc import ABC, abstractmethod
 from deuces import Card
+from playerstrategyABC import PlayerStrategy
+from example_custom_players import SimpleAIStrategy, AggressiveAIStrategy, ConservativeAIStrategy
+import traceback
 
 
 def convert_pokerkit_to_deuces_cards(pokerkit_cards):
@@ -137,43 +140,6 @@ def safe_print_pretty_cards(cards, prefix=""):
         print(f"{prefix}{' '.join(card_strings)}")
 
 
-class PlayerStrategy(ABC):
-    """Interfaz abstracta para estrategias de jugadores"""
-
-    @abstractmethod
-    def get_name(self):
-        """Retorna el nombre del jugador"""
-        pass
-
-    @abstractmethod
-    def make_decision(self, game_state, available_actions, player_index):
-        """
-        Toma una decisión basada en el estado del juego
-
-        Args:
-            game_state: Estado actual del juego
-            available_actions: Lista de acciones disponibles [(action_type, description, amount), ...]
-            player_index: Índice del jugador en el juego
-
-        Returns:
-            Tupla (action_type, amount) o None para cancelar
-        """
-        pass
-
-    @abstractmethod
-    def on_action_taken(self, player_index, action_type, amount, description):
-        """
-        Callback cuando se toma una acción (para logging, análisis, etc.)
-
-        Args:
-            player_index: Índice del jugador que tomó la acción
-            action_type: Tipo de acción tomada
-            amount: Cantidad apostada
-            description: Descripción de la acción
-        """
-        pass
-
-
 class HumanPlayerStrategy(PlayerStrategy):
     """Estrategia para jugador humano interactivo"""
 
@@ -236,128 +202,6 @@ class HumanPlayerStrategy(PlayerStrategy):
     def on_action_taken(self, player_index, action_type, amount, description):
         # El jugador humano ya ve las acciones, no necesita callback adicional
         pass
-
-
-class SimpleAIStrategy(PlayerStrategy):
-    """Estrategia de IA simple con comportamiento aleatorio"""
-
-    def __init__(self, name="Bot"):
-        self.name = name
-
-    def get_name(self):
-        return self.name
-
-    def make_decision(self, game_state, available_actions, player_index):
-        """Implementa una IA simple para los jugadores automáticos"""
-        import random
-
-        if not available_actions:
-            return None
-
-        # IA muy básica - comportamiento aleatorio con algunas tendencias
-        action_weights = []
-
-        for action_type, description, amount in available_actions:
-            if action_type == "fold":
-                weight = 0.2  # 20% probabilidad de fold
-            elif action_type in ["check", "call"]:
-                weight = 0.6  # 60% probabilidad de check/call
-            elif action_type in ["bet", "raise"]:
-                weight = 0.15  # 15% probabilidad de apostar/subir
-            else:  # all-in
-                weight = 0.05  # 5% probabilidad de all-in
-
-            action_weights.append(weight)
-
-        # Seleccionar acción basada en probabilidades
-        selected_action = random.choices(
-            available_actions, weights=action_weights)[0]
-        action_type, description, amount = selected_action
-
-        return action_type, amount
-
-    def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🤖 {self.name}: {description}")
-
-
-class AggressiveAIStrategy(PlayerStrategy):
-    """Estrategia de IA más agresiva"""
-
-    def __init__(self, name="Bot Agresivo"):
-        self.name = name
-
-    def get_name(self):
-        return self.name
-
-    def make_decision(self, game_state, available_actions, player_index):
-        import random
-
-        if not available_actions:
-            return None
-
-        # IA agresiva - prefiere apostar y subir
-        action_weights = []
-
-        for action_type, description, amount in available_actions:
-            if action_type == "fold":
-                weight = 0.1  # 10% probabilidad de fold
-            elif action_type in ["check", "call"]:
-                weight = 0.3  # 30% probabilidad de check/call
-            elif action_type in ["bet", "raise"]:
-                weight = 0.5  # 50% probabilidad de apostar/subir
-            else:  # all-in
-                weight = 0.1  # 10% probabilidad de all-in
-
-            action_weights.append(weight)
-
-        selected_action = random.choices(
-            available_actions, weights=action_weights)[0]
-        action_type, description, amount = selected_action
-
-        return action_type, amount
-
-    def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🔥 {self.name}: {description}")
-
-
-class ConservativeAIStrategy(PlayerStrategy):
-    """Estrategia de IA más conservadora"""
-
-    def __init__(self, name="Bot Conservador"):
-        self.name = name
-
-    def get_name(self):
-        return self.name
-
-    def make_decision(self, game_state, available_actions, player_index):
-        import random
-
-        if not available_actions:
-            return None
-
-        # IA conservadora - prefiere check/call y fold
-        action_weights = []
-
-        for action_type, description, amount in available_actions:
-            if action_type == "fold":
-                weight = 0.3  # 30% probabilidad de fold
-            elif action_type in ["check", "call"]:
-                weight = 0.6  # 60% probabilidad de check/call
-            elif action_type in ["bet", "raise"]:
-                weight = 0.08  # 8% probabilidad de apostar/subir
-            else:  # all-in
-                weight = 0.02  # 2% probabilidad de all-in
-
-            action_weights.append(weight)
-
-        selected_action = random.choices(
-            available_actions, weights=action_weights)[0]
-        action_type, description, amount = selected_action
-
-        return action_type, amount
-
-    def on_action_taken(self, player_index, action_type, amount, description):
-        print(f"🛡️ {self.name}: {description}")
 
 
 class InteractivePokerGame:
@@ -712,15 +556,6 @@ class InteractivePokerGame:
 
                 action_count += 1
 
-                # Pausa para jugadores no humanos para que sea más natural
-                if not isinstance(self.player_strategies[current_player], HumanPlayerStrategy):
-                    import time
-                    if self.human_player < 0:
-                        # Pausa más larga para observar mejor la partida entre bots
-                        time.sleep(1.5)  # Reducida de 2 segundos
-                    else:
-                        time.sleep(0.5)  # Reducida de 1 segundo
-
                 # Mostrar estado actualizado en formato compacto
                 self.print_game_state(compact=True)
 
@@ -735,95 +570,107 @@ class InteractivePokerGame:
         # Mostrar resultados
         self.show_results()
 
+    @staticmethod
+    def repeated_hand_simulation(player_strategies=None, starting_stacks=None, blinds=(50, 100)):
+        """Función principal para ejecutar la simulación"""
 
-def main():
-    """Función principal para ejecutar la simulación"""
-    print("🎰" * 20)
-    print("¡Bienvenido al Texas Hold'em No Limit!")
-    print("Simulando juego por defecto entre 5 jugadores IA")
+        # Configuración por defecto si no se proporcionan estrategias
+        if player_strategies is None:
+            player_strategies = [
+                SimpleAIStrategy("SimpleBot 1"),
+                AggressiveAIStrategy("AggressiveBot"),
+                ConservativeAIStrategy("ConservativeBot"),
+                SimpleAIStrategy("SimpleBot 2"),
+                SimpleAIStrategy("SimpleBot 3")
+            ]
 
-    try:
-        # Configuración del juego con diferentes estrategias
-        starting_stacks = [10000, 10000, 10000,
-                           10000, 10000]  # Fichas iniciales iguales
-        blinds = (50, 100)  # Small blind, Big blind
+        # Configuración por defecto para stacks
+        if starting_stacks is None:
+            starting_stacks = [10000] * len(player_strategies)
+        print("🎰" * 20)
+        print("No Limit Texas Hold'em!")
+        print("🎰" * 20)
+        try:
+            # Crear y ejecutar el juego
+            game = InteractivePokerGame(
+                starting_stacks=starting_stacks,
+                blinds=blinds,
+                player_strategies=player_strategies
+            )
 
-        # Crear y ejecutar el juego
-        game = InteractivePokerGame(
-            starting_stacks=starting_stacks,
-            blinds=blinds
-        )
+            game.play_hand()
 
-        game.play_hand()
+            while True:
+                # Crear nuevo juego con stacks actualizados
+                new_stacks = list(game.state.stacks)
 
-        while True:
-            # Crear nuevo juego con stacks actualizados
-            new_stacks = list(game.state.stacks)
+                # Contar jugadores con fichas suficientes para al menos el small blind
+                players_with_chips = sum(
+                    1 for stack in new_stacks if stack >= blinds[0])
 
-            # Contar jugadores con fichas suficientes para al menos el small blind
-            players_with_chips = sum(
-                1 for stack in new_stacks if stack >= blinds[0])
+                if players_with_chips >= 2:  # Necesitamos al menos 2 jugadores
+                    # Ajustar los stacks - si un jugador tiene menos que el big blind pero más que 0,
+                    # aún puede jugar (podrá hacer all-in)
+                    adjusted_stacks = []
+                    active_players = []
 
-            if players_with_chips >= 2:  # Necesitamos al menos 2 jugadores
-                # Ajustar los stacks - si un jugador tiene menos que el big blind pero más que 0,
-                # aún puede jugar (podrá hacer all-in)
-                adjusted_stacks = []
-                active_players = []
-
-                for i, stack in enumerate(new_stacks):
-                    if stack > 0:  # Jugador tiene alguna ficha
-                        adjusted_stacks.append(stack)
-                        active_players.append(i)
-                    else:
-                        # Jugador eliminado - no incluir en próxima mano
-                        continue
-
-                if len(active_players) >= 2:
-
-                    print(f"🎮 Continúa con {len(active_players)} jugadores")
-
-                    # Crear nuevas estrategias para los jugadores activos
-                    active_strategies = [game.player_strategies[i]
-                                         for i in active_players]
-
-                    game = InteractivePokerGame(
-                        player_strategies=active_strategies,
-                        starting_stacks=adjusted_stacks,
-                        blinds=blinds
-                    )
-
-                    game.play_hand()
-                else:
-
-                    print("🏁 Solo queda un jugador. ¡Juego terminado!")
-                    break
-            else:
-                if players_with_chips == 1:
-                    # Encontrar el único jugador restante con fichas
-                    winner_idx = None
                     for i, stack in enumerate(new_stacks):
-                        if stack > 0:
-                            winner_idx = i
-                            break
+                        if stack > 0:  # Jugador tiene alguna ficha
+                            adjusted_stacks.append(stack)
+                            active_players.append(i)
+                        else:
+                            # Jugador eliminado - no incluir en próxima mano
+                            continue
 
-                    if winner_idx is not None:
-                        winner_name = game.player_names[winner_idx]
+                    if len(active_players) >= 2:
+
                         print(
+                            f"🎮 Continúa con {len(active_players)} jugadores")
 
-                            f"🏆 ¡{winner_name} gana el torneo con {new_stacks[winner_idx]:,} fichas!")
+                        # Crear nuevas estrategias para los jugadores activos
+                        active_strategies = [game.player_strategies[i]
+                                             for i in active_players]
+
+                        game = InteractivePokerGame(
+                            player_strategies=active_strategies,
+                            starting_stacks=adjusted_stacks,
+                            blinds=blinds
+                        )
+
+                        game.play_hand()
                     else:
-                        print("🚫 Error: No se pudo determinar el ganador")
-                    break
+
+                        print("🏁 Solo queda un jugador. ¡Juego terminado!")
+                        break
                 else:
+                    if players_with_chips == 1:
+                        # Encontrar el único jugador restante con fichas
+                        winner_idx = None
+                        for i, stack in enumerate(new_stacks):
+                            if stack > 0:
+                                winner_idx = i
+                                break
 
-                    print("🚫 No hay suficientes jugadores para continuar")
-                    break
+                        if winner_idx is not None:
+                            winner_name = game.player_names[winner_idx]
+                            print(
 
-    except KeyboardInterrupt:
-        print("\n👋 Juego cancelado. ¡Hasta la próxima!")
-    except Exception as e:
-        print(f"❌ Error inesperado: {e}")
+                                f"🏆 ¡{winner_name} gana el torneo con {new_stacks[winner_idx]:,} fichas!")
+                        else:
+                            print("🚫 Error: No se pudo determinar el ganador")
+                        break
+                    else:
+
+                        print("🚫 No hay suficientes jugadores para continuar")
+                        break
+
+        except KeyboardInterrupt:
+            print("\n👋 Juego cancelado. ¡Hasta la próxima!")
+        except Exception as e:
+            print(f"❌ Error inesperado: {e}")
+            print("Línea del error:")
+            traceback.print_exc()
 
 
 if __name__ == "__main__":
-    main()
+    InteractivePokerGame.repeated_hand_simulation()

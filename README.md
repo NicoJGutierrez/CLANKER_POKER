@@ -1,80 +1,58 @@
 # Simulador de Poker Texas Hold'em - Jugadores Personalizables
 
-Este simulador de poker ha sido refactorizado para permitir el uso de jugadores personalizables mediante una arquitectura de estrategias pluggable.
+Usando la ABC mostrada en el archivo playerstrategyABC.py, la idea es que implementen su propio bot de poker.
 
-## 🎯 Características Principales
+## Librerías requeridas
 
-- **Jugadores Personalizables**: Crea tus propias estrategias de IA
-- **Múltiples Estrategias Incluidas**: Humano, IA Simple, Agresiva, Conservadora
-- **Interfaz Extensible**: Fácil de extender con nuevos comportamientos
-- **Recolección de Datos**: Posibilidad de analizar y registrar partidas
-- **Partidas Flexibles**: Desde 2 hasta múltiples jugadores
+Deben instalar las librerías pokerkit y deuces
 
-## 🏗️ Arquitectura
-
-### Clase Base: `PlayerStrategy`
-
-Todas las estrategias de jugadores deben heredar de esta clase abstracta:
-
-```python
-from abc import ABC, abstractmethod
-
-class PlayerStrategy(ABC):
-    @abstractmethod
-    def get_name(self):
-        """Retorna el nombre del jugador"""
-        pass
-    
-    @abstractmethod
-    def make_decision(self, game_state, available_actions, player_index):
-        """Toma una decisión basada en el estado del juego"""
-        pass
-    
-    @abstractmethod
-    def on_action_taken(self, player_index, action_type, amount, description):
-        """Callback cuando se toma una acción"""
-        pass
+```bash
+pip install pokerkit
 ```
 
-## 🎮 Tipos de Jugadores Incluidos
+```bash
+pip install deuces
+```
 
-### 1. `HumanPlayerStrategy`
+## 🎮 Jugadores de ejemplo incluídos
 
-- Jugador interactivo controlado por humano
-- Solicita entrada por consola para cada decisión
-
-### 2. `SimpleAIStrategy`
+### 1. `SimpleAIStrategy`
 
 - IA básica con comportamiento aleatorio ponderado
 - 60% check/call, 20% fold, 15% bet/raise, 5% all-in
+
+### 2. `ConservativeAIStrategy`
+
+- IA conservadora que prefiere jugar seguro
+- 60% check/call, 30% fold, 8% bet/raise, 2% all-in
 
 ### 3. `AggressiveAIStrategy`
 
 - IA más agresiva que prefiere apostar y subir
 - 50% bet/raise, 30% check/call, 10% fold, 10% all-in
 
-### 4. `ConservativeAIStrategy`
+### 4. `HumanPlayerStrategy`
 
-- IA conservadora que prefiere jugar seguro
-- 60% check/call, 30% fold, 8% bet/raise, 2% all-in
+- Jugador interactivo controlado por humano
+- Solicita entrada por consola para cada decisión
+- Está desactivado por defecto, pero lo dejé por si quieren probar a jugar ustedes
 
 ## 🚀 Uso Básico
 
 ### Crear un Juego Simple
 
+Si logran armar su propia estrategia, la idea es que puedan un script así para probarla:
+
 ```python
-from pokerSimulator import (
-    InteractivePokerGame, 
-    HumanPlayerStrategy,
-    SimpleAIStrategy,
-    AggressiveAIStrategy
-)
+from pokerSimulator import InteractivePokerGame
+from example_custom_players import SimpleAIStrategy
+from tu_archivo import TuEstrategia
 
 # Crear estrategias para los jugadores
 strategies = [
-    HumanPlayerStrategy("Mi Nombre"),
+    TuEstrategia("Mi Nombre"),
     SimpleAIStrategy("Bot Simple"),
-    AggressiveAIStrategy("Bot Agresivo")
+    SimpleAIStrategy("Bot Simple 2")
 ]
 
 # Configurar el juego
@@ -88,20 +66,7 @@ game = InteractivePokerGame(
     blinds=blinds
 )
 
-game.play_hand()
-```
-
-### Juego Solo Entre IAs
-
-```python
-strategies = [
-    SimpleAIStrategy("Bot 1"),
-    AggressiveAIStrategy("Bot 2"),
-    ConservativeAIStrategy("Bot 3")
-]
-
-game = InteractivePokerGame(player_strategies=strategies)
-game.play_hand()
+game.repeated_hand_simulation()
 ```
 
 ## 🔧 Crear Estrategias Personalizadas
