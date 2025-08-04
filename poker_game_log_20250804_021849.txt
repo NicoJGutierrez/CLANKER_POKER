@@ -1,0 +1,1972 @@
+
+================================================================================
+POKER SIMULATOR - LOG DE JUEGO
+Fecha y hora: 2025-08-04 02:18:49
+Archivo: poker_game_log_20250804_021849.txt
+================================================================================
+
+
+--- METADATOS DE LA PARTIDA ---
+Número de jugadores: 3
+Stacks iniciales: [10000, 10000, 10000]
+Blinds: Small Blind = 50, Big Blind = 100
+Estrategias:
+  1. Clanker (Clanker)
+  2. Bot Simple (SimpleAIStrategy)
+  3. Bot Simple 2 (SimpleAIStrategy)
+--- FIN METADATOS ---
+
+🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰
+No Limit Texas Hold'em!
+🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 9,950
+     Apuesta: 50
+       [ J ♦ ] , [ 8 ♠ ]
+
+   Bot Simple:
+     Estado: ✅ Activo
+     Stack: 9,900
+     Apuesta: 100
+       [ A ❤ ] , [ K ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 10,000
+     Apuesta: 0
+       [ 6 ♣ ] , [ 9 ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 150
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 9,950 (apuesta: 50)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,900 (apuesta: 100)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Clanker eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+   Clanker: 9,900 (apuesta: 100)
+       [ J ♦ ] , [ 8 ♠ ]
+👉 Bot Simple: 9,900 (apuesta: 100)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Bot Simple eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ]
+👉 Clanker: 9,900 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,900 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ]
+   Clanker: 9,900 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+👉 Bot Simple: 9,900 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Bot Simple eligió: Apostar (100)
+
+Flop | Bote: 100
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ]
+👉 Clanker: 9,900 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,800 (apuesta: 100)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Clanker eligió: Igualar (100)
+
+Turn | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ] , [ 7 ❤ ]
+👉 Clanker: 9,800 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,800 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ] , [ 7 ❤ ]
+   Clanker: 9,800 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+👉 Bot Simple: 9,800 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Bot Simple eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ] , [ 7 ❤ ] , [ 3 ♠ ]
+👉 Clanker: 9,800 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,800 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ] , [ 7 ❤ ] , [ 3 ♠ ]
+   Clanker: 9,800 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+👉 Bot Simple: 9,800 (apuesta: 0)
+       [ A ❤ ] , [ K ❤ ]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+🤖 Bot Simple eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ J ♣ ] , [ 8 ♦ ] , [ 6 ❤ ] , [ 7 ❤ ] , [ 3 ♠ ]
+   Clanker: 10,200 (apuesta: 0)
+       [ J ♦ ] , [ 8 ♠ ]
+   Bot Simple: 9,800 (apuesta: 0) [Fold]
+   Bot Simple 2: 10,000 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 10,200
+     Apuesta: 0
+       [ J ♦ ] , [ 8 ♠ ]
+
+   Bot Simple:
+     Estado: ❌ Fuera
+     Stack: 9,800
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 10,000
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 10,200
+   Bot Simple: 9,800
+   Bot Simple 2: 10,000
+🎮 Continúa con 3 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 10,150
+     Apuesta: 50
+       [ 2 ❤ ] , [ 7 ♠ ]
+
+   Bot Simple:
+     Estado: ✅ Activo
+     Stack: 9,700
+     Apuesta: 100
+       [ Q ❤ ] , [ 7 ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 10,000
+     Apuesta: 0
+       [ 8 ♦ ] , [ J ♦ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (100)
+
+Pre-flop | Bote: 250
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 10,150 (apuesta: 50)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 9,700 (apuesta: 100)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 9,900 (apuesta: 100)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Clanker eligió: Igualar (50)
+
+Pre-flop | Bote: 300
+🃏 Mesa: (Sin cartas)
+   Clanker: 10,100 (apuesta: 100)
+       [ 2 ❤ ] , [ 7 ♠ ]
+👉 Bot Simple: 9,700 (apuesta: 100)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 9,900 (apuesta: 100)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Bot Simple eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ]
+👉 Clanker: 10,100 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 9,700 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 9,900 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ]
+   Clanker: 10,100 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+👉 Bot Simple: 9,700 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 9,900 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Bot Simple eligió: All-in (9,700)
+
+Flop | Bote: 9,700
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ]
+   Clanker: 10,100 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 9,700)
+       [ Q ❤ ] , [ 7 ❤ ]
+👉 Bot Simple 2: 9,900 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Igualar (9,700)
+
+Flop | Bote: 19,400
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ]
+👉 Clanker: 10,100 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 9,700)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 200 (apuesta: 9,700)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Clanker eligió: Igualar (9,700)
+
+Turn | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ] , [ 7 ♦ ]
+👉 Clanker: 400 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 200 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ] , [ 7 ♦ ]
+   Clanker: 400 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+👉 Bot Simple 2: 200 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ] , [ 7 ♦ ] , [ 2 ♦ ]
+👉 Clanker: 400 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+   Bot Simple 2: 200 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ] , [ 7 ♦ ] , [ 2 ♦ ]
+   Clanker: 400 (apuesta: 0)
+       [ 2 ❤ ] , [ 7 ♠ ]
+   Bot Simple: 0 (apuesta: 0)
+       [ Q ❤ ] , [ 7 ❤ ]
+👉 Bot Simple 2: 200 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ Q ♦ ] , [ 5 ♠ ] , [ 5 ❤ ] , [ 7 ♦ ] , [ 2 ♦ ]
+   Clanker: 400 (apuesta: 0) [Fold]
+   Bot Simple: 0 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,600 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 400
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple:
+     Estado: ❌ Fuera
+     Stack: 0
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,600
+     Apuesta: 0
+       [ 8 ♦ ] , [ J ♦ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 400
+   Bot Simple: 0
+   Bot Simple 2: 29,600
+
+💀 JUGADORES ELIMINADOS: Bot Simple
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 300
+     Apuesta: 100
+       [ 4 ♣ ] , [ T ♣ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,550
+     Apuesta: 50
+       [ 2 ♣ ] , [ A ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: All-in (29,600)
+
+Pre-flop | Bote: 29,700
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 300 (apuesta: 100)
+       [ 4 ♣ ] , [ T ♣ ]
+   Bot Simple 2: 0 (apuesta: 29,600)
+       [ 2 ♣ ] , [ A ♠ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 300 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ A ♠ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 300
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,700
+     Apuesta: 0
+       [ 2 ♣ ] , [ A ♠ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 300
+   Bot Simple 2: 29,700
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 200
+     Apuesta: 100
+       [ T ♠ ] , [ 7 ♦ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,650
+     Apuesta: 50
+       [ A ❤ ] , [ 7 ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 350 (apuesta: 0)
+       [ T ♠ ] , [ 7 ♦ ]
+   Bot Simple 2: 29,650 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 350
+     Apuesta: 0
+       [ T ♠ ] , [ 7 ♦ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,650
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 350
+   Bot Simple 2: 29,650
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 250
+     Apuesta: 100
+       [ 6 ❤ ] , [ 4 ♣ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,600
+     Apuesta: 50
+       [ A ♦ ] , [ 7 ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 400 (apuesta: 0)
+       [ 6 ❤ ] , [ 4 ♣ ]
+   Bot Simple 2: 29,600 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 400
+     Apuesta: 0
+       [ 6 ❤ ] , [ 4 ♣ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,600
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 400
+   Bot Simple 2: 29,600
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 300
+     Apuesta: 100
+       [ 2 ♣ ] , [ Q ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,550
+     Apuesta: 50
+       [ K ♦ ] , [ 7 ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 300 (apuesta: 100)
+       [ 2 ♣ ] , [ Q ♠ ]
+   Bot Simple 2: 29,500 (apuesta: 100)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ]
+👉 Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+   Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ]
+   Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+👉 Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ] , [ T ♦ ]
+👉 Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+   Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ] , [ T ♦ ]
+   Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+👉 Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ] , [ T ♦ ] , [ J ♣ ]
+👉 Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+   Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ] , [ T ♦ ] , [ J ♣ ]
+   Clanker: 300 (apuesta: 0)
+       [ 2 ♣ ] , [ Q ♠ ]
+👉 Bot Simple 2: 29,500 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 3 ♠ ] , [ K ♣ ] , [ J ❤ ] , [ T ♦ ] , [ J ♣ ]
+   Clanker: 300 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ K ♦ ] , [ 7 ❤ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 300
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,700
+     Apuesta: 0
+       [ K ♦ ] , [ 7 ❤ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 300
+   Bot Simple 2: 29,700
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 200
+     Apuesta: 100
+       [ 8 ♦ ] , [ T ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,650
+     Apuesta: 50
+       [ 3 ❤ ] , [ A ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: All-in (29,700)
+
+Pre-flop | Bote: 29,800
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 200 (apuesta: 100)
+       [ 8 ♦ ] , [ T ❤ ]
+   Bot Simple 2: 0 (apuesta: 29,700)
+       [ 3 ❤ ] , [ A ♠ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 200 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,800 (apuesta: 0)
+       [ 3 ❤ ] , [ A ♠ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 200
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,800
+     Apuesta: 0
+       [ 3 ❤ ] , [ A ♠ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 200
+   Bot Simple 2: 29,800
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 100
+     Apuesta: 100
+       [ 8 ♦ ] , [ K ♣ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,750
+     Apuesta: 50
+       [ 4 ♣ ] , [ A ♣ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: All-in (29,800)
+
+Pre-flop | Bote: 29,900
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 100 (apuesta: 100)
+       [ 8 ♦ ] , [ K ♣ ]
+   Bot Simple 2: 0 (apuesta: 29,800)
+       [ 4 ♣ ] , [ A ♣ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 100 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,900 (apuesta: 0)
+       [ 4 ♣ ] , [ A ♣ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 100
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,900
+     Apuesta: 0
+       [ 4 ♣ ] , [ A ♣ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 100
+   Bot Simple 2: 29,900
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 0
+     Apuesta: 100
+       [ 5 ♠ ] , [ 2 ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,850
+     Apuesta: 50
+       [ T ❤ ] , [ 2 ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ A ♣ ] , [ 5 ♦ ] , [ 3 ♦ ] , [ 9 ❤ ]
+   Clanker: 200 (apuesta: 0)
+       [ 5 ♠ ] , [ 2 ♠ ]
+   Bot Simple 2: 29,800 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 200
+     Apuesta: 0
+       [ 5 ♠ ] , [ 2 ♠ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,800
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 200
+   Bot Simple 2: 29,800
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 100
+     Apuesta: 100
+       [ A ♦ ] , [ A ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,750
+     Apuesta: 50
+       [ 2 ♣ ] , [ J ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 100 (apuesta: 100)
+       [ A ♦ ] , [ A ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 100)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ]
+   Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+👉 Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ] , [ 8 ♠ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ] , [ 8 ♠ ]
+   Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+👉 Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ] , [ 8 ♠ ] , [ J ♠ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ] , [ 8 ♠ ] , [ J ♠ ]
+   Clanker: 100 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+👉 Bot Simple 2: 29,700 (apuesta: 0)
+       [ 2 ♣ ] , [ J ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 9 ♦ ] , [ 3 ❤ ] , [ K ♠ ] , [ 8 ♠ ] , [ J ♠ ]
+   Clanker: 300 (apuesta: 0)
+       [ A ♦ ] , [ A ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 300
+     Apuesta: 0
+       [ A ♦ ] , [ A ♠ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,700
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 300
+   Bot Simple 2: 29,700
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 200
+     Apuesta: 100
+       [ T ♦ ] , [ T ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,650
+     Apuesta: 50
+       [ Q ♦ ] , [ Q ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 350 (apuesta: 0)
+       [ T ♦ ] , [ T ♠ ]
+   Bot Simple 2: 29,650 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 350
+     Apuesta: 0
+       [ T ♦ ] , [ T ♠ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,650
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 350
+   Bot Simple 2: 29,650
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 250
+     Apuesta: 100
+       [ 9 ❤ ] , [ 6 ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,600
+     Apuesta: 50
+       [ Q ♠ ] , [ 5 ♣ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 400 (apuesta: 0)
+       [ 9 ❤ ] , [ 6 ♠ ]
+   Bot Simple 2: 29,600 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 400
+     Apuesta: 0
+       [ 9 ❤ ] , [ 6 ♠ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,600
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 400
+   Bot Simple 2: 29,600
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 300
+     Apuesta: 100
+       [ 6 ❤ ] , [ 2 ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,550
+     Apuesta: 50
+       [ Q ♦ ] , [ T ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 450 (apuesta: 0)
+       [ 6 ❤ ] , [ 2 ❤ ]
+   Bot Simple 2: 29,550 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 450
+     Apuesta: 0
+       [ 6 ❤ ] , [ 2 ❤ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,550
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 450
+   Bot Simple 2: 29,550
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 350
+     Apuesta: 100
+       [ 7 ❤ ] , [ 3 ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,500
+     Apuesta: 50
+       [ J ♦ ] , [ 9 ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 500 (apuesta: 0)
+       [ 7 ❤ ] , [ 3 ♠ ]
+   Bot Simple 2: 29,500 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 500
+     Apuesta: 0
+       [ 7 ❤ ] , [ 3 ♠ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,500
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 500
+   Bot Simple 2: 29,500
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 400
+     Apuesta: 100
+       [ 8 ♦ ] , [ J ♦ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,450
+     Apuesta: 50
+       [ J ♣ ] , [ 3 ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 400 (apuesta: 100)
+       [ 8 ♦ ] , [ J ♦ ]
+   Bot Simple 2: 29,400 (apuesta: 100)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ]
+👉 Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+   Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ]
+   Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+👉 Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ] , [ 6 ♣ ]
+👉 Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+   Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ] , [ 6 ♣ ]
+   Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+👉 Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ] , [ 6 ♣ ] , [ K ♦ ]
+👉 Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+   Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ] , [ 6 ♣ ] , [ K ♦ ]
+   Clanker: 400 (apuesta: 0)
+       [ 8 ♦ ] , [ J ♦ ]
+👉 Bot Simple 2: 29,400 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ T ♣ ] , [ 5 ♣ ] , [ 8 ♣ ] , [ 6 ♣ ] , [ K ♦ ]
+   Clanker: 400 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,600 (apuesta: 0)
+       [ J ♣ ] , [ 3 ♠ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 400
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,600
+     Apuesta: 0
+       [ J ♣ ] , [ 3 ♠ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 400
+   Bot Simple 2: 29,600
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 300
+     Apuesta: 100
+       [ 8 ❤ ] , [ 4 ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,550
+     Apuesta: 50
+       [ K ❤ ] , [ 8 ♦ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa: (Sin cartas)
+   Clanker: 450 (apuesta: 0)
+       [ 8 ❤ ] , [ 4 ❤ ]
+   Bot Simple 2: 29,550 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 450
+     Apuesta: 0
+       [ 8 ❤ ] , [ 4 ❤ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,550
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 450
+   Bot Simple 2: 29,550
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 350
+     Apuesta: 100
+       [ 8 ♦ ] , [ 3 ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,500
+     Apuesta: 50
+       [ 5 ♣ ] , [ J ♦ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 350 (apuesta: 100)
+       [ 8 ♦ ] , [ 3 ❤ ]
+   Bot Simple 2: 29,450 (apuesta: 100)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ]
+👉 Clanker: 350 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+   Bot Simple 2: 29,450 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ]
+   Clanker: 350 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+👉 Bot Simple 2: 29,450 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Apostar (100)
+
+Flop | Bote: 100
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ]
+👉 Clanker: 350 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+   Bot Simple 2: 29,350 (apuesta: 100)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Clanker eligió: Igualar (100)
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ] , [ T ♦ ]
+👉 Clanker: 250 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+   Bot Simple 2: 29,350 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ] , [ T ♦ ]
+   Clanker: 250 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+👉 Bot Simple 2: 29,350 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ] , [ T ♦ ] , [ K ♠ ]
+👉 Clanker: 250 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+   Bot Simple 2: 29,350 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ] , [ T ♦ ] , [ K ♠ ]
+   Clanker: 250 (apuesta: 0)
+       [ 8 ♦ ] , [ 3 ❤ ]
+👉 Bot Simple 2: 29,350 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 7 ❤ ] , [ T ♣ ] , [ J ❤ ] , [ T ♦ ] , [ K ♠ ]
+   Clanker: 250 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,750 (apuesta: 0)
+       [ 5 ♣ ] , [ J ♦ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 250
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,750
+     Apuesta: 0
+       [ 5 ♣ ] , [ J ♦ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 250
+   Bot Simple 2: 29,750
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 150
+     Apuesta: 100
+       [ 2 ❤ ] , [ T ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,700
+     Apuesta: 50
+       [ 5 ♠ ] , [ 8 ❤ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 150 (apuesta: 100)
+       [ 2 ❤ ] , [ T ♠ ]
+   Bot Simple 2: 29,650 (apuesta: 100)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ]
+👉 Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+   Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ]
+   Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+👉 Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ]
+👉 Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+   Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ]
+   Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+👉 Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ] , [ 7 ♣ ]
+👉 Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+   Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Clanker eligió: Pasar
+
+River | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ] , [ 7 ♣ ]
+   Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+👉 Bot Simple 2: 29,650 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Bot Simple 2 eligió: All-in (29,650)
+
+River | Bote: 29,650
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ] , [ 7 ♣ ]
+👉 Clanker: 150 (apuesta: 0)
+       [ 2 ❤ ] , [ T ♠ ]
+   Bot Simple 2: 0 (apuesta: 29,650)
+       [ 5 ♠ ] , [ 8 ❤ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 4 ❤ ] , [ 5 ♦ ] , [ 6 ❤ ] , [ K ♣ ] , [ 7 ♣ ]
+   Clanker: 150 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,850 (apuesta: 0)
+       [ 5 ♠ ] , [ 8 ❤ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 150
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,850
+     Apuesta: 0
+       [ 5 ♠ ] , [ 8 ❤ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 150
+   Bot Simple 2: 29,850
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 50
+     Apuesta: 100
+       [ 3 ♠ ] , [ A ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,800
+     Apuesta: 50
+       [ Q ♦ ] , [ 9 ♣ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 50 (apuesta: 100)
+       [ 3 ♠ ] , [ A ♠ ]
+   Bot Simple 2: 29,750 (apuesta: 100)
+       [ Q ♦ ] , [ 9 ♣ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 6 ♠ ] , [ 5 ♠ ] , [ Q ❤ ]
+👉 Clanker: 50 (apuesta: 0)
+       [ 3 ♠ ] , [ A ♠ ]
+   Bot Simple 2: 29,750 (apuesta: 0)
+       [ Q ♦ ] , [ 9 ♣ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 6 ♠ ] , [ 5 ♠ ] , [ Q ❤ ]
+   Clanker: 50 (apuesta: 0)
+       [ 3 ♠ ] , [ A ♠ ]
+👉 Bot Simple 2: 29,750 (apuesta: 0)
+       [ Q ♦ ] , [ 9 ♣ ]
+🤖 Bot Simple 2 eligió: All-in (29,750)
+
+Flop | Bote: 29,750
+🃏 Mesa:
+[ 6 ♠ ] , [ 5 ♠ ] , [ Q ❤ ]
+👉 Clanker: 50 (apuesta: 0)
+       [ 3 ♠ ] , [ A ♠ ]
+   Bot Simple 2: 0 (apuesta: 29,750)
+       [ Q ♦ ] , [ 9 ♣ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 6 ♠ ] , [ 5 ♠ ] , [ Q ❤ ]
+   Clanker: 50 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,950 (apuesta: 0)
+       [ Q ♦ ] , [ 9 ♣ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 50
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,950
+     Apuesta: 0
+       [ Q ♦ ] , [ 9 ♣ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 50
+   Bot Simple 2: 29,950
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 100
+     Apuesta: 0
+       [ 9 ♦ ] , [ K ❤ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,900
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 100
+     Apuesta: 0
+       [ 9 ♦ ] , [ K ❤ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,900
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 100
+   Bot Simple 2: 29,900
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 0
+     Apuesta: 100
+       [ Q ❤ ] , [ A ❤ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,850
+     Apuesta: 50
+       [ T ♣ ] , [ 5 ♠ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 8 ♦ ] , [ 9 ❤ ] , [ 6 ♦ ] , [ A ♦ ] , [ 4 ♣ ]
+   Clanker: 200 (apuesta: 0)
+       [ Q ❤ ] , [ A ❤ ]
+   Bot Simple 2: 29,800 (apuesta: 0) [Fold]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 200
+     Apuesta: 0
+       [ Q ❤ ] , [ A ❤ ]
+
+   Bot Simple 2:
+     Estado: ❌ Fuera
+     Stack: 29,800
+     Apuesta: 0
+     Sin cartas
+
+🏁 Ronda terminada
+🥇 Clanker gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 200
+   Bot Simple 2: 29,800
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 100
+     Apuesta: 100
+       [ T ♣ ] , [ 9 ♠ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,750
+     Apuesta: 50
+       [ Q ♠ ] , [ A ♦ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 200
+🃏 Mesa: (Sin cartas)
+👉 Clanker: 100 (apuesta: 100)
+       [ T ♣ ] , [ 9 ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 100)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ T ♣ ] , [ 9 ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Clanker eligió: Pasar
+
+Flop | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ]
+   Clanker: 100 (apuesta: 0)
+       [ T ♣ ] , [ 9 ♠ ]
+👉 Bot Simple 2: 29,700 (apuesta: 0)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Bot Simple 2 eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ] , [ Q ♣ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ T ♣ ] , [ 9 ♠ ]
+   Bot Simple 2: 29,700 (apuesta: 0)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Clanker eligió: Pasar
+
+Turn | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ] , [ Q ♣ ]
+   Clanker: 100 (apuesta: 0)
+       [ T ♣ ] , [ 9 ♠ ]
+👉 Bot Simple 2: 29,700 (apuesta: 0)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Bot Simple 2 eligió: All-in (29,700)
+
+Turn | Bote: 29,700
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ] , [ Q ♣ ]
+👉 Clanker: 100 (apuesta: 0)
+       [ T ♣ ] , [ 9 ♠ ]
+   Bot Simple 2: 0 (apuesta: 29,700)
+       [ Q ♠ ] , [ A ♦ ]
+🤖 Clanker eligió: Retirarse
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 7 ♠ ] , [ 6 ♠ ] , [ 7 ♦ ] , [ Q ♣ ]
+   Clanker: 100 (apuesta: 0) [Fold]
+   Bot Simple 2: 29,900 (apuesta: 0)
+       [ Q ♠ ] , [ A ♦ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 100
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,900
+     Apuesta: 0
+       [ Q ♠ ] , [ A ♦ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 100
+   Bot Simple 2: 29,900
+🎮 Continúa con 2 jugadores
+⚔️ ¡HEADS-UP! Solo quedan 2 jugadores
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ✅ Activo
+     Stack: 0
+     Apuesta: 100
+       [ 4 ♣ ] , [ 3 ♣ ]
+
+👉 Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 29,850
+     Apuesta: 50
+       [ 4 ❤ ] , [ 7 ♣ ]
+
+🎯 Turno de: Bot Simple 2
+🤖 Bot Simple 2 eligió: Igualar (50)
+
+Pre-flop | Bote: 0
+🃏 Mesa:
+[ 5 ♣ ] , [ 6 ♦ ] , [ T ♠ ] , [ 8 ♦ ] , [ J ♣ ]
+   Clanker: 0 (apuesta: 0) [Fold]
+   Bot Simple 2: 30,000 (apuesta: 0)
+       [ 4 ❤ ] , [ 7 ♣ ]
+RESULTADOS FINALES 🏆
+
+============================================================
+🎰 LETS GO GAMBLING!!! 🎰
+============================================================
+
+👥 JUGADORES:
+--------------------------------------------------
+   Clanker:
+     Estado: ❌ Fuera
+     Stack: 0
+     Apuesta: 0
+     Sin cartas
+
+   Bot Simple 2:
+     Estado: ✅ Activo
+     Stack: 30,000
+     Apuesta: 0
+       [ 4 ❤ ] , [ 7 ♣ ]
+
+🏁 Ronda terminada
+🥇 Bot Simple 2 gana por ser el único jugador restante!
+
+💰 FICHAS FINALES:
+   Clanker: 0
+   Bot Simple 2: 30,000
+
+💀 JUGADORES ELIMINADOS: Clanker
+🏆 ¡Bot Simple 2 gana el torneo con 30,000 fichas!
+
+--- METADATOS DE LA PARTIDA ---
+GANADOR: Bot Simple 2
+Fichas finales: 30,000
+Estrategia ganadora: SimpleAIStrategy
+
+Clasificación final:
+1. Bot Simple 2 - 30,000 fichas (SimpleAIStrategy)
+2. Clanker - 0 fichas (Clanker)
+--- FIN METADATOS ---
+
+
+================================================================================
+FIN DEL LOG - 2025-08-04 02:18:50
+================================================================================

@@ -5,6 +5,104 @@ from deuces import Card
 from playerstrategyABC import PlayerStrategy
 from example_custom_players import SimpleAIStrategy, AggressiveAIStrategy, ConservativeAIStrategy
 import traceback
+import datetime
+import sys
+import io
+
+
+class GameLogger:
+    """Clase para gestionar el logging del juego a archivo y consola"""
+
+    def __init__(self, filename=None):
+        if filename is None:
+            # Generar nombre de archivo con timestamp
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"poker_game_log_{timestamp}.txt"
+
+        self.filename = filename
+        self.log_file = None
+        self.original_stdout = sys.stdout
+
+    def start_logging(self):
+        """Inicia el logging a archivo"""
+        try:
+            self.log_file = open(self.filename, 'w', encoding='utf-8')
+            print(f"🗃️ Iniciando log del juego en: {self.filename}")
+            self._log_header()
+        except Exception as e:
+            print(f"⚠️ Error al crear archivo de log: {e}")
+            self.log_file = None
+
+    def _log_header(self):
+        """Escribe el header del archivo de log"""
+        if self.log_file:
+            header = f"""
+{'='*80}
+POKER SIMULATOR - LOG DE JUEGO
+Fecha y hora: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+Archivo: {self.filename}
+{'='*80}
+
+"""
+            self.log_file.write(header)
+            self.log_file.flush()
+
+    def log_metadata(self, data):
+        """Loggea metadatos estructurados del juego"""
+        if self.log_file:
+            try:
+                metadata = f"""
+--- METADATOS DE LA PARTIDA ---
+{data}
+--- FIN METADATOS ---
+
+"""
+                self.log_file.write(metadata)
+                self.log_file.flush()
+            except Exception as e:
+                print(f"⚠️ Error escribiendo metadatos: {e}")
+
+    def log_and_print(self, message):
+        """Imprime el mensaje en consola y lo guarda en el archivo"""
+        # Imprimir en consola
+        print(message)
+
+        # Guardar en archivo si está disponible
+        if self.log_file:
+            try:
+                self.log_file.write(message + '\n')
+                self.log_file.flush()  # Asegurar que se escriba inmediatamente
+            except Exception as e:
+                print(f"⚠️ Error escribiendo al log: {e}")
+
+    def close_logging(self):
+        """Cierra el archivo de log"""
+        if self.log_file:
+            try:
+                footer = f"""
+{'='*80}
+FIN DEL LOG - {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+{'='*80}
+"""
+                self.log_file.write(footer)
+                self.log_file.close()
+                print(f"🗃️ Log guardado exitosamente en: {self.filename}")
+            except Exception as e:
+                print(f"⚠️ Error al cerrar archivo de log: {e}")
+            finally:
+                self.log_file = None
+
+
+# Logger global para el juego
+game_logger = None
+
+
+def log_print(message):
+    """Función helper para imprimir y loggear"""
+    if game_logger:
+        game_logger.log_and_print(message)
+    else:
+        print(message)
 
 
 def convert_pokerkit_to_deuces_cards(pokerkit_cards):
@@ -65,7 +163,7 @@ def safe_print_pretty_cards(cards, prefix=""):
     Imprime cartas de manera segura con pretty printing o fallback
     """
     if not cards:
-        print(f"{prefix}(Sin cartas)")
+        log_print(f"{prefix}(Sin cartas)")
         return
 
     try:
@@ -91,7 +189,7 @@ def safe_print_pretty_cards(cards, prefix=""):
             if lines and any(line.strip() for line in lines):
                 for line in lines:
                     if line.strip():
-                        print(f"{prefix}{line}")
+                        log_print(f"{prefix}{line}")
             else:
                 # Fallback si no hay salida válida
                 card_strings = []
@@ -106,7 +204,7 @@ def safe_print_pretty_cards(cards, prefix=""):
                             card_strings.append(card_str)
                     else:
                         card_strings.append(card_str)
-                print(f"{prefix}{' '.join(card_strings)}")
+                log_print(f"{prefix}{' '.join(card_strings)}")
         else:
             # Fallback: usar representación string simple
             card_strings = []
@@ -121,7 +219,7 @@ def safe_print_pretty_cards(cards, prefix=""):
                         card_strings.append(card_str)
                 else:
                     card_strings.append(card_str)
-            print(f"{prefix}{' '.join(card_strings)}")
+            log_print(f"{prefix}{' '.join(card_strings)}")
 
     except Exception as e:
         # Fallback final: representación string simple
@@ -137,7 +235,7 @@ def safe_print_pretty_cards(cards, prefix=""):
                     card_strings.append(card_str)
             else:
                 card_strings.append(card_str)
-        print(f"{prefix}{' '.join(card_strings)}")
+        log_print(f"{prefix}{' '.join(card_strings)}")
 
 
 class HumanPlayerStrategy(PlayerStrategy):
@@ -149,17 +247,28 @@ class HumanPlayerStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         """Solicita al jugador humano que elija una acción"""
         if not available_actions:
-            print("❌ No hay acciones disponibles")
+            log_print("❌ No hay acciones disponibles")
             return None
 
-        print("\n🎮 TUS OPCIONES:")
-        print("-" * 30)
+        # Mostrar cartas del jugador
+        log_print("\n🎴 TUS CARTAS:")
+        safe_print_pretty_cards(player_cards, "   ")
+
+        # Mostrar cartas comunitarias
+        if board_cards:
+            log_print("\n🃏 MESA:")
+            safe_print_pretty_cards(board_cards, "   ")
+        else:
+            log_print("\n🃏 MESA: (Sin cartas comunitarias)")
+
+        log_print("\n🎮 TUS OPCIONES:")
+        log_print("-" * 30)
 
         for i, (action_type, description, amount) in enumerate(available_actions, 1):
-            print(f"{i}. {description}")
+            log_print(f"{i}. {description}")
 
         while True:
             try:
@@ -172,31 +281,29 @@ class HumanPlayerStrategy(PlayerStrategy):
 
                     # Si es una apuesta/subida personalizada, permitir ingreso de cantidad
                     if action_type in ["bet", "raise"] and default_amount > 0:
-                        min_amount = game_state.min_completion_betting_or_raising_to_amount
-                        max_amount = game_state.max_completion_betting_or_raising_to_amount
-
+                        # Nota: No tenemos acceso al game_state aquí, así que usamos valores por defecto
                         custom = input(
-                            f"¿Cantidad personalizada? (Enter para mínimo {min_amount:,}): ").strip()
+                            f"¿Cantidad personalizada? (Enter para mínimo {default_amount:,}): ").strip()
                         if custom:
                             try:
                                 amount = int(custom)
-                                if min_amount <= amount <= max_amount:
+                                if amount >= default_amount:
                                     return action_type, amount
                                 else:
-                                    print(
-                                        f"❌ Cantidad debe estar entre {min_amount:,} y {max_amount:,}")
+                                    log_print(
+                                        f"❌ Cantidad debe ser al menos {default_amount:,}")
                                     continue
                             except ValueError:
-                                print("❌ Ingresa un número válido")
+                                log_print("❌ Ingresa un número válido")
                                 continue
 
                     return action_type, default_amount
                 else:
-                    print("❌ Opción inválida")
+                    log_print("❌ Opción inválida")
             except ValueError:
-                print("❌ Ingresa un número válido")
+                log_print("❌ Ingresa un número válido")
             except KeyboardInterrupt:
-                print("\n👋 Juego cancelado")
+                log_print("\n👋 Juego cancelado")
                 return None
 
     def on_action_taken(self, player_index, action_type, amount, description):
@@ -285,12 +392,12 @@ class InteractivePokerGame:
             except (TypeError, AttributeError):
                 pass
 
-            print(f"\n{current_street} | Bote: {total_pot:,}")
+            log_print(f"\n{current_street} | Bote: {total_pot:,}")
             if community_cards:
-                print("🃏 Mesa:")
+                log_print("🃏 Mesa:")
                 safe_print_pretty_cards(community_cards)
             else:
-                print("🃏 Mesa: (Sin cartas)")
+                log_print("🃏 Mesa: (Sin cartas)")
 
             # Información compacta de jugadores
             for i in range(self.state.player_count):
@@ -311,27 +418,28 @@ class InteractivePokerGame:
 
                 if should_show_cards:
                     if self.state.hole_cards[i]:
-                        print(
+                        log_print(
                             f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,})")
                         safe_print_pretty_cards(
                             self.state.hole_cards[i], "       ")
                     else:
-                        print(
+                        log_print(
                             f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,}) [Fold]")
                 else:
-                    print(f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,})")
+                    log_print(
+                        f"{turn_indicator} {name}: {stack:,} (apuesta: {bet:,})")
         else:
             # Versión completa original
-            print("\n" + "="*60)
-            print("🎰 LETS GO GAMBLING!!! 🎰")
-            print("="*60)
+            log_print("\n" + "="*60)
+            log_print("🎰 LETS GO GAMBLING!!! 🎰")
+            log_print("="*60)
 
             # Pot total
             total_pot = sum(self.state.bets) if self.state.bets else 0
 
             # Información de jugadores
-            print("\n👥 JUGADORES:")
-            print("-" * 50)
+            log_print("\n👥 JUGADORES:")
+            log_print("-" * 50)
 
             for i in range(self.state.player_count):
                 name = self.player_names[i]
@@ -350,28 +458,28 @@ class InteractivePokerGame:
                 turn_indicator = "👉" if (
                     self.state.actor_indices and i == self.state.actor_indices[0]) else "  "
 
-                print(f"{turn_indicator} {name}:")
-                print(f"     Estado: {status}")
-                print(f"     Stack: {stack:,}")
-                print(f"     Apuesta: {bet:,}")
+                log_print(f"{turn_indicator} {name}:")
+                log_print(f"     Estado: {status}")
+                log_print(f"     Stack: {stack:,}")
+                log_print(f"     Apuesta: {bet:,}")
 
                 if should_show_cards:
                     if self.state.hole_cards[i]:
                         safe_print_pretty_cards(
                             self.state.hole_cards[i], "       ")
                     else:
-                        print(f"     Sin cartas")
+                        log_print(f"     Sin cartas")
                 else:
-                    print(
+                    log_print(
                         f"     🂠 🂠" if self.state.hole_cards[i] else "     Sin cartas")
-                print()
+                log_print("")
 
             # Jugador en turno
             if self.state.actor_indices:
                 current_player = self.state.actor_indices[0]
-                print(f"🎯 Turno de: {self.player_names[current_player]}")
+                log_print(f"🎯 Turno de: {self.player_names[current_player]}")
             else:
-                print("🏁 Ronda terminada")
+                log_print("🏁 Ronda terminada")
 
     def get_available_actions(self):
         """Obtiene las acciones disponibles para el jugador actual"""
@@ -415,14 +523,27 @@ class InteractivePokerGame:
 
         return actions
 
+    def get_player_cards(self, player_index):
+        """Obtiene las cartas del jugador especificado"""
+        if 0 <= player_index < len(self.state.hole_cards):
+            return self.state.hole_cards[player_index]
+        return []
+
     def get_player_action(self, player_index):
         """Obtiene la acción de un jugador usando su estrategia"""
         actions = self.get_available_actions()
         if not actions:
             return None
 
+        community_cards = []
+        try:
+            for cards in self.state.board_cards:
+                community_cards.extend(cards)
+        except (TypeError, AttributeError):
+            pass
+
         strategy = self.player_strategies[player_index]
-        return strategy.make_decision(self.state, actions, player_index)
+        return strategy.make_decision(self.get_player_cards(player_index), community_cards, actions)
 
     def get_human_action(self):
         """Método legacy - ahora redirige a get_player_action"""
@@ -437,6 +558,40 @@ class InteractivePokerGame:
     def execute_action(self, action_type, amount, player_index=None):
         """Ejecuta la acción elegida"""
         try:
+            # Loggear la acción antes de ejecutarla
+            if player_index is not None and 0 <= player_index < len(self.player_names):
+                player_name = self.player_names[player_index]
+                strategy = self.player_strategies[player_index]
+
+                # Determinar el icono de la estrategia
+                if "Aggressive" in strategy.__class__.__name__:
+                    icon = "🔥"
+                elif "Conservative" in strategy.__class__.__name__:
+                    icon = "🛡️"
+                elif "Human" in strategy.__class__.__name__:
+                    icon = "🎮"
+                else:
+                    icon = "🤖"
+
+                # Formatear la descripción de la acción
+                if action_type == "fold":
+                    action_desc = "Retirarse"
+                elif action_type == "check":
+                    action_desc = "Pasar"
+                elif action_type == "call":
+                    action_desc = f"Igualar ({amount:,})"
+                elif action_type == "bet":
+                    action_desc = f"Apostar ({amount:,})"
+                elif action_type == "raise":
+                    action_desc = f"Subir (min: {amount:,})"
+                elif action_type == "allin":
+                    action_desc = f"All-in ({amount:,})"
+                else:
+                    action_desc = action_type
+
+                log_print(f"{icon} {player_name} eligió: {action_desc}")
+
+            # Ejecutar la acción
             if action_type == "fold":
                 self.state.fold()
             elif action_type == "check":
@@ -457,7 +612,7 @@ class InteractivePokerGame:
 
             return True
         except Exception as e:
-            print(f"❌ Error ejecutando acción: {e}")
+            log_print(f"❌ Error ejecutando acción: {e}")
             return False
 
     def is_hand_over(self):
@@ -487,7 +642,7 @@ class InteractivePokerGame:
 
     def show_results(self):
         """Muestra los resultados finales de la mano"""
-        print("RESULTADOS FINALES 🏆")
+        log_print("RESULTADOS FINALES 🏆")
 
         try:
             # Mostrar siempre todas las cartas en los resultados finales
@@ -498,38 +653,38 @@ class InteractivePokerGame:
                 self.state.statuses) if status]
             if len(active_players) == 1:
                 winner = active_players[0]
-                print(
+                log_print(
                     f"🥇 {self.player_names[winner]} gana por ser el único jugador restante!")
             elif len(active_players) > 1:
-                print(
+                log_print(
                     f"🎪 A {len(active_players)} jugadores les toca mostrar sus cartas")
 
             # Mostrar stacks finales
-            print("\n💰 FICHAS FINALES:")
+            log_print("\n💰 FICHAS FINALES:")
             eliminated_players = []
             for i, (name, stack) in enumerate(zip(self.player_names, self.state.stacks)):
-                print(f"   {name}: {stack:,}")
+                log_print(f"   {name}: {stack:,}")
                 if stack == 0:
                     eliminated_players.append(name)
 
             # Mostrar jugadores eliminados
             if eliminated_players:
-                print(
+                log_print(
                     f"\n💀 JUGADORES ELIMINADOS: {', '.join(eliminated_players)}")
 
         except Exception as e:
-            print(f"⚠️ Error mostrando resultados: {e}")
-            print("La mano ha terminado.")
+            log_print(f"⚠️ Error mostrando resultados: {e}")
+            log_print("La mano ha terminado.")
 
     def play_hand(self):
         """Juega una mano completa"""
 
         # Mostrar información especial para heads-up (2 jugadores)
         if self.state.player_count == 2:
-            print("⚔️ ¡HEADS-UP! Solo quedan 2 jugadores")
+            log_print("⚔️ ¡HEADS-UP! Solo quedan 2 jugadores")
 
         if self.human_player >= 0 and self.human_player < len(self.player_names):
-            print(f"🎯 Tú eres {self.player_names[self.human_player]}")
+            log_print(f"🎯 Tú eres {self.player_names[self.human_player]}")
 
         self.print_game_state()  # Estado inicial completo
 
@@ -560,12 +715,12 @@ class InteractivePokerGame:
                 self.print_game_state(compact=True)
 
             if action_count >= max_actions:
-                print(
+                log_print(
                     "⚠️ Se alcanzó el límite máximo de acciones. Terminando la mano...")
 
         except Exception as e:
-            print(f"⚠️ Error durante el juego: {e}")
-            print("Terminando la mano...")
+            log_print(f"⚠️ Error durante el juego: {e}")
+            log_print("Terminando la mano...")
 
         # Mostrar resultados
         self.show_results()
@@ -587,9 +742,26 @@ class InteractivePokerGame:
         # Configuración por defecto para stacks
         if starting_stacks is None:
             starting_stacks = [10000] * len(player_strategies)
-        print("🎰" * 20)
-        print("No Limit Texas Hold'em!")
-        print("🎰" * 20)
+
+        # Inicializar logger global
+        global game_logger
+        game_logger = GameLogger()
+        game_logger.start_logging()
+
+        # Loggear metadatos iniciales
+        metadata = f"""Número de jugadores: {len(player_strategies)}
+Stacks iniciales: {starting_stacks}
+Blinds: Small Blind = {blinds[0]:,}, Big Blind = {blinds[1]:,}
+Estrategias:"""
+
+        for i, strategy in enumerate(player_strategies):
+            metadata += f"\n  {i+1}. {strategy.get_name()} ({strategy.__class__.__name__})"
+
+        game_logger.log_metadata(metadata)
+
+        log_print("🎰" * 20)
+        log_print("No Limit Texas Hold'em!")
+        log_print("🎰" * 20)
         try:
             # Crear y ejecutar el juego
             game = InteractivePokerGame(
@@ -624,7 +796,7 @@ class InteractivePokerGame:
 
                     if len(active_players) >= 2:
 
-                        print(
+                        log_print(
                             f"🎮 Continúa con {len(active_players)} jugadores")
 
                         # Crear nuevas estrategias para los jugadores activos
@@ -640,7 +812,7 @@ class InteractivePokerGame:
                         game.play_hand()
                     else:
 
-                        print("🏁 Solo queda un jugador. ¡Juego terminado!")
+                        log_print("🏁 Solo queda un jugador. ¡Juego terminado!")
                         break
                 else:
                     if players_with_chips == 1:
@@ -653,23 +825,51 @@ class InteractivePokerGame:
 
                         if winner_idx is not None:
                             winner_name = game.player_names[winner_idx]
-                            print(
-
+                            log_print(
                                 f"🏆 ¡{winner_name} gana el torneo con {new_stacks[winner_idx]:,} fichas!")
+
+                            # Loggear estadísticas finales
+                            final_stats = f"""GANADOR: {winner_name}
+Fichas finales: {new_stacks[winner_idx]:,}
+Estrategia ganadora: {game.player_strategies[winner_idx].__class__.__name__}
+
+Clasificación final:"""
+
+                            # Crear lista de jugadores ordenada por fichas
+                            final_ranking = []
+                            for i, (name, stack) in enumerate(zip(game.player_names, new_stacks)):
+                                final_ranking.append(
+                                    (stack, name, game.player_strategies[i].__class__.__name__))
+
+                            final_ranking.sort(reverse=True)
+
+                            for rank, (stack, name, strategy_class) in enumerate(final_ranking, 1):
+                                final_stats += f"\n{rank}. {name} - {stack:,} fichas ({strategy_class})"
+
+                            game_logger.log_metadata(final_stats)
                         else:
-                            print("🚫 Error: No se pudo determinar el ganador")
+                            log_print(
+                                "🚫 Error: No se pudo determinar el ganador")
                         break
                     else:
-
-                        print("🚫 No hay suficientes jugadores para continuar")
+                        log_print(
+                            "🚫 No hay suficientes jugadores para continuar")
                         break
 
         except KeyboardInterrupt:
-            print("\n👋 Juego cancelado. ¡Hasta la próxima!")
+            log_print("\n👋 Juego cancelado. ¡Hasta la próxima!")
         except Exception as e:
-            print(f"❌ Error inesperado: {e}")
-            print("Línea del error:")
+            log_print(f"❌ Error inesperado: {e}")
+            log_print("Línea del error:")
+            # También loggear el traceback
+            if game_logger and game_logger.log_file:
+                traceback.print_exc(file=game_logger.log_file)
+                game_logger.log_file.flush()
             traceback.print_exc()
+        finally:
+            # Cerrar el logger al finalizar
+            if game_logger:
+                game_logger.close_logging()
 
 
 if __name__ == "__main__":

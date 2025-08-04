@@ -14,7 +14,7 @@ class SimpleAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         """Implementa una IA simple para los jugadores automáticos"""
         import random
 
@@ -56,7 +56,7 @@ class AggressiveAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         import random
 
         if not available_actions:
@@ -96,7 +96,7 @@ class ConservativeAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         import random
 
         if not available_actions:
@@ -137,24 +137,16 @@ class CardCountingStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         if not available_actions:
             return None
 
         # Simular conteo de cartas básico
-        # En una implementación real, analizaríamos las cartas comunitarias
-        # y ajustaríamos las probabilidades
-
-        # Obtener información del estado
-        community_cards = []
-        try:
-            for cards in game_state.board_cards:
-                community_cards.extend(cards)
-        except (TypeError, AttributeError):
-            pass
+        # Analizar las cartas del jugador y las comunitarias
+        all_visible_cards = list(player_cards) + list(board_cards)
 
         # Estrategia basada en número de cartas comunitarias
-        num_community = len(community_cards)
+        num_community = len(board_cards)
 
         action_weights = []
         for action_type, description, amount in available_actions:
@@ -191,16 +183,18 @@ class BluffingStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         if not available_actions:
             return None
 
         # Decidir si hacer bluff esta ronda
+        # Usamos el número de cartas comunitarias como proxy para la ronda
+        current_street = len(board_cards)
         should_bluff = (random.random() < self.bluff_frequency and
-                        game_state.street_index != self.last_bluff_round)
+                        current_street != self.last_bluff_round)
 
         if should_bluff:
-            self.last_bluff_round = game_state.street_index
+            self.last_bluff_round = current_street
             # Buscar acción más agresiva disponible
             for action_type, description, amount in reversed(available_actions):
                 if action_type in ["bet", "raise"]:
@@ -250,21 +244,23 @@ class DataCollectionStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         # Recopilar datos del estado actual
         self.game_data['hands_played'] += 1
 
         # Usar la estrategia base para la decisión
         decision = self.base_strategy.make_decision(
-            game_state, available_actions, player_index)
+            player_cards, board_cards, available_actions)
 
         # Registrar la decisión
         if decision:
             self.game_data['actions_taken'].append({
-                'street': game_state.street_index,
+                # Usar número de cartas comunitarias como indicador de calle
+                'street': len(board_cards),
                 'action_type': decision[0],
                 'amount': decision[1],
-                'pot_size': sum(game_state.bets) if game_state.bets else 0
+                'num_player_cards': len(player_cards),
+                'num_board_cards': len(board_cards)
             })
 
         return decision
@@ -286,7 +282,7 @@ class SimpleAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         """Implementa una IA simple para los jugadores automáticos"""
         import random
 
@@ -328,7 +324,7 @@ class AggressiveAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         import random
 
         if not available_actions:
@@ -368,7 +364,7 @@ class ConservativeAIStrategy(PlayerStrategy):
     def get_name(self):
         return self.name
 
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         import random
 
         if not available_actions:

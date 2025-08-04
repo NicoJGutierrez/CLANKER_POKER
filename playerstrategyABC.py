@@ -10,14 +10,14 @@ class PlayerStrategy(ABC):
         pass
 
     @abstractmethod
-    def make_decision(self, game_state, available_actions, player_index):
+    def make_decision(self, player_cards, board_cards, available_actions):
         """
-        Toma una decisión basada en el estado del juego
+        Toma una decisión basada solo en las cartas del jugador y las cartas comunitarias
 
         Args:
-            game_state: Estado actual del juego
+            player_cards: Lista de cartas del jugador
+            board_cards: Lista de cartas comunitarias en la mesa
             available_actions: Lista de acciones disponibles [(action_type, description, amount), ...]
-            player_index: Índice del jugador en el juego
 
         Returns:
             Tupla (action_type, amount) o None para cancelar
