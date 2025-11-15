@@ -28,7 +28,7 @@ class GameLogger:
 
 
 class PokerSimulatorGame:
-    def __init__(self, player_strategies=None, starting_stacks=None, blinds=(200, 400)):
+    def __init__(self, player_strategies=None, starting_stacks=None, blinds=(1, 2)):
         self.player_strategies = player_strategies or []
         self.starting_stacks = starting_stacks or [
             10000] * len(self.player_strategies)
@@ -197,7 +197,7 @@ class PokerSimulatorGame:
             self.execute_player_action(
                 current_player, action_type=action_type, amount=amount)
 
-    def repeated_hand_simulation(self, player_strategies: list[PlayerStrategy], starting_stacks=list[int], blinds=(50, 100)):
+    def repeated_hand_simulation(self, player_strategies: list[PlayerStrategy], starting_stacks=list[int]):
         if len(player_strategies) != len(starting_stacks):
             raise ValueError(
                 "El número de estrategias debe coincidir con el número de stacks iniciales")
@@ -205,7 +205,7 @@ class PokerSimulatorGame:
         # Loggear metadatos iniciales
         metadata = f"""Número de jugadores: {len(player_strategies)}
                     Stacks iniciales: {starting_stacks}
-                    Blinds: Small Blind = {blinds[0]:,}, Big Blind = {blinds[1]:,}
+                    Blinds: Small Blind = {self.blinds[0]:,}, Big Blind = {self.blinds[1]:,}
                     Estrategias:"""
 
         for i, strategy in enumerate(player_strategies):
